@@ -1,0 +1,17 @@
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\ConsoleGui.deps.json
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\ConsoleGui.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\ConsoleGui.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\Domain.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\GameEngine.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\GameEngine.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\Domain.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.csproj.AssemblyReference.cache
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.AssemblyInfoInputs.cache
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.AssemblyInfo.cs
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.csproj.CoreCompileInputs.cache
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.csproj.Up2Date
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\refint\ConsoleGui.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ref\ConsoleGui.dll

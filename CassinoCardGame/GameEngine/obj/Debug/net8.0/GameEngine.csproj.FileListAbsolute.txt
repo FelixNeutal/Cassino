@@ -1,0 +1,15 @@
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\bin\Debug\net8.0\GameEngine.deps.json
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\bin\Debug\net8.0\GameEngine.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\bin\Debug\net8.0\GameEngine.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\bin\Debug\net8.0\Domain.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\bin\Debug\net8.0\Domain.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.csproj.AssemblyReference.cache
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.AssemblyInfoInputs.cache
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.AssemblyInfo.cs
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.csproj.CoreCompileInputs.cache
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.csproj.Up2Date
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\refint\GameEngine.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\ref\GameEngine.dll
