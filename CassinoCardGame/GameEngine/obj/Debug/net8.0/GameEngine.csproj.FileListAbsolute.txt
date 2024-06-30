@@ -13,3 +13,4 @@ C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\G
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\refint\GameEngine.dll
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\ref\GameEngine.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\GameEngine\obj\Debug\net8.0\GameEngine.sourcelink.json

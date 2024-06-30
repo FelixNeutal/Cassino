@@ -2,7 +2,7 @@
 
 namespace GameEngine;
 
-public class Engine
+public class Game
 {
     public List<Card> FullDeck { get; set; } = new List<Card>();
 

@@ -9,3 +9,4 @@ C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\MenuSystem\obj\Debug\net8.0\M
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\MenuSystem\obj\Debug\net8.0\refint\MenuSystem.dll
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\MenuSystem\obj\Debug\net8.0\MenuSystem.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\MenuSystem\obj\Debug\net8.0\ref\MenuSystem.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\MenuSystem\obj\Debug\net8.0\MenuSystem.sourcelink.json

@@ -15,3 +15,4 @@ C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\C
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\refint\ConsoleGui.dll
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ref\ConsoleGui.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.sourcelink.json
