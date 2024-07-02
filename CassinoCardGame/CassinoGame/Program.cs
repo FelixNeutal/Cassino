@@ -5,16 +5,32 @@ using Domain;
 using GameEngine;
 
 Gui gui = new Gui();
-Card c1 = new Card()
+
+List<Card> cards = new List<Card>()
 {
+    new Card()
+    {
     Suit = ESuit.Clubs,
     Rank = ERank.Ten
-};
+},
 
-Card c2 = new Card()
+new Card()
 {
     Suit = ESuit.Diamonds,
     Rank = ERank.Six
+},
+
+new Card()
+{
+    Suit = ESuit.Hearts,
+    Rank = ERank.Jack
+},
+
+new Card()
+{
+    Suit = ESuit.Spades,
+    Rank = ERank.Ace
+}   
 };
-gui.DrawCard(1, 1, c1);
-gui.DrawCard(1, 1, c2);
+
+gui.DrawPlayerHand(cards);

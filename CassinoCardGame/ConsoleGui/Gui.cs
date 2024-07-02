@@ -4,6 +4,8 @@ namespace ConsoleGui;
 
 public class Gui
 {
+    private Dictionary<(int, int), Card> PlayerCards = new Dictionary<(int, int), Card>();
+    private Dictionary<(int, int), Build> TableCards = new Dictionary<(int, int), Build>();
     private string[] _heartsCard = {" _______ ",
                                 "|  _ _  |",
                                 "| ( V ) |",
@@ -28,24 +30,42 @@ public class Gui
                                 "| (_._) |",
                                 "|   |   |",
                                 "|______S|"};
+
+    public void PlayerTurn()
+    {
+        bool isTurnDone = false;
+        while (!isTurnDone)
+        {
+            
+        }
+    }
     public void DrawCard(int x, int y, Card card, ConsoleColor color = ConsoleColor.Gray)
     {
         string[] correctCard = GetCorrectCard(card);
         foreach (var c in correctCard)
         {
-            Console.WriteLine(c);
+            Console.SetCursorPosition(x, y);
+            Console.Write(c);
+            y++;
         }
         
     }
+    
+    
     
     public void DrawTable()
     {
         
     }
 
-    public void DrawPlayerHand()
+    public void DrawPlayerHand(List<Card> cards)
     {
-        
+        int x = 10;
+        foreach (var card in cards)
+        {
+            DrawCard(x, 10, card);
+            x += 10;
+        }
     }
 
     private string[] GetCorrectCard(Card card)
@@ -73,7 +93,6 @@ public class Gui
         }
 
         var characters = correctCard[1].ToCharArray();
-        Console.WriteLine(characters.Length);
 
         switch (card.Rank)
         {
@@ -119,7 +138,6 @@ public class Gui
                 break;
         }
         correctCard[1] = new string(characters);
-        Console.WriteLine("Yeah" + correctCard[1] + "Yeah");
 
         return correctCard;
     }
