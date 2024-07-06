@@ -33,4 +33,5 @@ new Card()
 }   
 };
 
-gui.DrawPlayerHand(cards);
+//gui.DrawPlayerHand(cards);
+gui.InitBoard();

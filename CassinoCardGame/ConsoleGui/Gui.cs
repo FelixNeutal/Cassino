@@ -6,6 +6,10 @@ public class Gui
 {
     private Dictionary<(int, int), Card> PlayerCards = new Dictionary<(int, int), Card>();
     private Dictionary<(int, int), Build> TableCards = new Dictionary<(int, int), Build>();
+    private bool PlayerCardSelected = false;
+    public int BoardWidth { get; set; } = 150;
+    public int BoardHeight { get; set; } = 200;
+
     private string[] _heartsCard = {" _______ ",
                                 "|  _ _  |",
                                 "| ( V ) |",
@@ -31,14 +35,66 @@ public class Gui
                                 "|   |   |",
                                 "|______S|"};
 
-    public void PlayerTurn()
+    public void InitBoard()
     {
+        Console.Write(new string('#', BoardWidth));
+        Console.SetCursorPosition(0, 1);
+        Console.Write("#");
+        Console.SetCursorPosition(BoardWidth - 1, 1);
+        Console.Write("#");
+        Console.WriteLine();
+        Console.WriteLine(new string('#', BoardWidth));
+        for (int i = 3; i < BoardHeight - 1; i++)
+        {
+            //Console.SetCursorPosition(0, i);
+            Console.Write("#");
+            Console.SetCursorPosition(BoardWidth - 1, i);
+            Console.WriteLine("#");
+        }
+        Console.WriteLine(new string('#', BoardWidth));
+    }
+
+    public void PlayerMove()
+    {
+        int currentCard = 0;
+        int previousCard = 0;
         bool isTurnDone = false;
+        ConsoleKey key;
+        List<(int, int)> keys = PlayerCards.Keys.ToList();
         while (!isTurnDone)
         {
-            
+            DrawCard(keys[previousCard].Item1, keys[previousCard].Item1, PlayerCards[keys[previousCard]]);
+            DrawCard(keys[currentCard].Item1, keys[currentCard].Item1, PlayerCards[keys[currentCard]], ConsoleColor.Yellow);
+            key = Console.ReadKey().Key;
+            if (key == ConsoleKey.LeftArrow)
+            {
+                if (currentCard > 0)
+                {
+                    previousCard = currentCard;
+                    currentCard--;
+                }
+            } else if (key == ConsoleKey.RightArrow)
+            {
+                if (currentCard < keys.Count - 2)
+                {
+                    previousCard = currentCard;
+                    currentCard++;
+                }
+            } else if (key == ConsoleKey.Enter)
+            {
+                
+            }
         }
     }
+    
+    private void TableMove(int currentCard) {}
+    /// <summary>
+    /// Draws card in specified position
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="card"></param>
+    /// <param name="color"></param>
     public void DrawCard(int x, int y, Card card, ConsoleColor color = ConsoleColor.Gray)
     {
         string[] correctCard = GetCorrectCard(card);
