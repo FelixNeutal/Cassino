@@ -8,10 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "CassinoGame/1.0.0": {
         "dependencies": {
-          "ConsoleGui": "1.0.0",
-          "Domain": "1.0.0",
-          "GameEngine": "1.0.0",
-          "MenuSystem": "1.0.0"
+          "Controller": "1.0.0"
         },
         "runtime": {
           "CassinoGame.dll": {}
@@ -23,6 +20,17 @@
         },
         "runtime": {
           "ConsoleGui.dll": {}
+        }
+      },
+      "Controller/1.0.0": {
+        "dependencies": {
+          "ConsoleGui": "1.0.0",
+          "Domain": "1.0.0",
+          "GameEngine": "1.0.0",
+          "MenuSystem": "1.0.0"
+        },
+        "runtime": {
+          "Controller.dll": {}
         }
       },
       "Domain/1.0.0": {
@@ -52,6 +60,11 @@
       "sha512": ""
     },
     "ConsoleGui/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Controller/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

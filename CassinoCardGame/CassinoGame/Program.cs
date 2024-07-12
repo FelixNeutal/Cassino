@@ -1,37 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using ConsoleGui;
-using Domain;
+using Controller;
 using GameEngine;
 
+Game game = new Game();
 Gui gui = new Gui();
-
-List<Card> cards = new List<Card>()
-{
-    new Card()
-    {
-    Suit = ESuit.Clubs,
-    Rank = ERank.Ten
-},
-
-new Card()
-{
-    Suit = ESuit.Diamonds,
-    Rank = ERank.Six
-},
-
-new Card()
-{
-    Suit = ESuit.Hearts,
-    Rank = ERank.Jack
-},
-
-new Card()
-{
-    Suit = ESuit.Spades,
-    Rank = ERank.Ace
-}   
-};
-
-//gui.DrawPlayerHand(cards);
-gui.InitBoard();
+GameController controller = new GameController(game, gui);
+controller.RunGame();

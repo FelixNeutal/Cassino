@@ -4,11 +4,15 @@ namespace ConsoleGui;
 
 public class Gui
 {
-    private Dictionary<(int, int), Card> PlayerCards = new Dictionary<(int, int), Card>();
-    private Dictionary<(int, int), Build> TableCards = new Dictionary<(int, int), Build>();
+    private List<ConsoleBuild> _playerCards = new List<ConsoleBuild>();
+    private List<ConsoleBuild> _opponentCards = new List<ConsoleBuild>();
+    private List<ConsoleBuild> _tableCards = new List<ConsoleBuild>();
     private bool PlayerCardSelected = false;
-    public int BoardWidth { get; set; } = 150;
-    public int BoardHeight { get; set; } = 200;
+    private int _cardSpacing = 5;
+    private int _cardWidth = 9;
+    private int _cardHeight = 6;
+    public int BoardWidth { get; set; } = 74;
+    public int BoardHeight { get; set; } = 41;
 
     private string[] _heartsCard = {" _______ ",
                                 "|  _ _  |",
@@ -28,15 +32,32 @@ public class Gui
                                "| (_'_) |",
                                "|   |   |",
                                "|______C|"};
-    private string[] _spadesCard = {" ________ ",
+    private string[] _spadesCard = {" _______ ",
                                 "|   .   |",
                                 "|  /.\\  |",
                                 "| (_._) |",
                                 "|   |   |",
                                 "|______S|"};
+    private string[] _emptyCard = {" _______ ",
+                                "| EMPTY |",
+                                "|       |",
+                                "|       |",
+                                "|       |",
+                                "|_______|"};
+    private string[] _opponentCard = {" _______ ",
+                                "|# # # #|",
+                                "| # # # |",
+                                "|# # # #|",
+                                "| # # # |",
+                                "|_______|"};
 
     public void InitBoard()
     {
+        Console.CursorVisible = false;
+        // Console.SetWindowSize(640, 480);
+        // Console.WriteLine(Console.LargestWindowHeight); // 41
+        // Console.WriteLine(Console.LargestWindowWidth); // 74
+        
         Console.Write(new string('#', BoardWidth));
         Console.SetCursorPosition(0, 1);
         Console.Write("#");
@@ -52,19 +73,37 @@ public class Gui
             Console.WriteLine("#");
         }
         Console.WriteLine(new string('#', BoardWidth));
+        string opponentTurnLabel = "Opponent's hand";
+        Console.SetCursorPosition(BoardWidth / 2 - 8, 3);
+        Console.Write(opponentTurnLabel);
+        // Draw table 
+        Console.SetCursorPosition(1, 11);
+        Console.Write(new string('=', BoardWidth - 2));
+        Console.SetCursorPosition(1, 26);
+        Console.Write(new string('=', BoardWidth - 2));
     }
 
-    public void PlayerMove()
+    public void DrawMenu(ConsoleBuild card)
+    {
+        
+    }
+
+    public void GetPlayerMove()
+    {
+        GetPlayerMove(_tableCards, 2);
+    }
+
+    public void GetPlayerMove(List<ConsoleBuild> cards, int level)
     {
         int currentCard = 0;
         int previousCard = 0;
         bool isTurnDone = false;
         ConsoleKey key;
-        List<(int, int)> keys = PlayerCards.Keys.ToList();
         while (!isTurnDone)
         {
-            DrawCard(keys[previousCard].Item1, keys[previousCard].Item1, PlayerCards[keys[previousCard]]);
-            DrawCard(keys[currentCard].Item1, keys[currentCard].Item1, PlayerCards[keys[currentCard]], ConsoleColor.Yellow);
+            DrawCard(cards[previousCard].Left, cards[previousCard].Top, cards[previousCard]);
+            DrawCard(cards[currentCard].Left, cards[currentCard].Top, cards[currentCard], ConsoleColor.Yellow);
+            DrawMenu(cards[currentCard]);            
             key = Console.ReadKey().Key;
             if (key == ConsoleKey.LeftArrow)
             {
@@ -75,7 +114,7 @@ public class Gui
                 }
             } else if (key == ConsoleKey.RightArrow)
             {
-                if (currentCard < keys.Count - 2)
+                if (currentCard < cards.Count - 1)
                 {
                     previousCard = currentCard;
                     currentCard++;
@@ -83,74 +122,175 @@ public class Gui
             } else if (key == ConsoleKey.Enter)
             {
                 
+            //} else if (key == ConsoleKey.UpArrow && level == 1)
+            //{
+            //    DrawCard(cards[currentCard].Left, cards[currentCard].Top, cards[currentCard]);
+            //    GetPlayerMove(null, _tableCards, 2);
+            } else if (key == ConsoleKey.Escape && level == 2)
+            {
+                DrawCard(cards[currentCard].Left, cards[currentCard].Top, cards[currentCard]);
+                isTurnDone = true;
             }
         }
     }
-    
-    private void TableMove(int currentCard) {}
-    /// <summary>
-    /// Draws card in specified position
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <param name="card"></param>
-    /// <param name="color"></param>
-    public void DrawCard(int x, int y, Card card, ConsoleColor color = ConsoleColor.Gray)
-    {
-        string[] correctCard = GetCorrectCard(card);
-        foreach (var c in correctCard)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(c);
-            y++;
-        }
-        
-    }
-    
-    
-    
-    public void DrawTable()
-    {
-        
-    }
 
-    public void DrawPlayerHand(List<Card> cards)
+    public void DrawPlayerCards(List<Build>? cards)
     {
-        int x = 10;
+        if (cards == null)
+        {
+            throw new ApplicationException("Player cards are null");
+        }
+        int left = 2;
+        int top = 28;
         foreach (var card in cards)
         {
-            DrawCard(x, 10, card);
-            x += 10;
+            ConsoleBuild ccard = new ConsoleBuild()
+            {
+                Cards = { card.Cards[0] },
+                Left = left,
+                Top = top
+            };
+            ccard.Left = left;
+            ccard.Top = top;
+            DrawCard(left, top, ccard);
+            _playerCards.Add(ccard);
+            left += _cardWidth + _cardSpacing;
         }
     }
+    
+    public void DrawOpponentCards(List<Build>? cards)
+    {
+        if (cards == null)
+        {
+            throw new ApplicationException("Opponent cards are null");
+        }
+        // int left = 10;
+        
+        int left = BoardWidth / 2 - (4 * _cardWidth + 3 * _cardSpacing) / 2;
+        int top = 4;
+        foreach (var card in cards)
+        {
+            //ConsoleBuild ccard = new ConsoleBuild(card.Cards[0], left, top, "OpponentCard");
+            ConsoleBuild ccard = new ConsoleBuild()
+            {
+                Cards = { card.Cards[0] },
+                Left = left,
+                Top = top,
+                Specialcard = "OpponentCard"
+            };
+            ccard.Left = left;
+            ccard.Top = top;
+            DrawCard(left, top, ccard);
+            _opponentCards.Add(ccard);
+            left += _cardWidth + _cardSpacing;
+        }
+    }
+    
+    public void DrawTableCards(List<Build>? cards)
+    {
+        if (cards == null)
+        {
+            throw new ApplicationException("Table cards are null");
+        }
+        // int left = 10;
+        int left = BoardWidth / 2 - (5 * _cardWidth + 4 * _cardSpacing) / 2;
+        int top = 12;
+        for (int i = 0; i < 10; i++)
+        {
+            if (i == 5)
+            {
+                left = BoardWidth / 2 - (5 * _cardWidth + 4 * _cardSpacing) / 2;
+                top += _cardHeight + 1;   
+            }
 
-    private string[] GetCorrectCard(Card card)
+            ConsoleBuild ccard;
+            if (i < cards.Count)
+            {
+                //ccard = new ConsoleBuild(cards[i].Cards[0], left, top);
+                ccard = new ConsoleBuild()
+                {
+                    Cards = { cards[i].Cards[0] },
+                    Left = left,
+                    Top = top,
+                };
+            }
+            else
+            {
+                //ccard = new ConsoleBuild(new Card(), left, top, "EmptyCard");   
+                ccard = new ConsoleBuild()
+                {
+                    Cards = { new Card() },
+                    Left = left,
+                    Top = top,
+                    Specialcard = "EmptyCard"
+                };
+            }
+            ccard.Left = left;
+            ccard.Top = top;
+            DrawCard(left, top, ccard);
+            _tableCards.Add(ccard);
+            left += _cardWidth + _cardSpacing;
+        }
+    }
+    
+    public void DrawCard(int left, int top, ConsoleBuild build, ConsoleColor color = ConsoleColor.Gray)
+    {
+        string[] correctCard = GetCorrectCard(build);
+        Console.ForegroundColor = color;
+        foreach (var c in correctCard)
+        {
+            Console.SetCursorPosition(left, top);
+            Console.Write(c);
+            top++;
+        }
+        
+    }
+
+    private string[] GetCorrectCard(ConsoleBuild build)
     {
         string[] correctCard = {};
-        switch (card.Suit)
+        if (build.Specialcard != "none")
+        {
+            if (build.Specialcard == "OpponentCard")
+            {
+                return _opponentCard;
+            } else if (build.Specialcard == "EmptyCard")
+            {
+                return _emptyCard;
+            }
+        }
+        switch (build.Cards?[build.Cards.Count].Suit)
         {
             case ESuit.Clubs:
-                correctCard = _clubsCard;
+                string[] newArray = new string[_clubsCard.Length];
+                _clubsCard.CopyTo(newArray, 0);
+                correctCard = newArray;
                 break;
             case ESuit.Diamonds:
-                correctCard = _diamondsCard;
+                newArray = new string[_diamondsCard.Length];
+                _diamondsCard.CopyTo(newArray, 0);
+                correctCard = newArray;
                 break;
             case ESuit.Hearts:
-                correctCard = _heartsCard;
+                newArray = new string[_heartsCard.Length];
+                _heartsCard.CopyTo(newArray, 0);
+                correctCard = newArray;
                 break;
             case ESuit.Spades:
-                correctCard = _spadesCard;
+                newArray = new string[_spadesCard.Length];
+                _spadesCard.CopyTo(newArray, 0);
+                correctCard = newArray;
                 break;
         }
 
         if (correctCard.Length == 0)
         {
-            throw new ApplicationException($"Unknown card {card}");
+            throw new ApplicationException($"Unknown build {build}");
         }
 
         var characters = correctCard[1].ToCharArray();
 
-        switch (card.Rank)
+        switch (build.Cards?[build.Cards.Count].Rank)
         {
             case ERank.Ace:
                 characters[1] = 'A';

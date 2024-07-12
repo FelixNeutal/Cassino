@@ -23,3 +23,5 @@ C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\CassinoGame\obj\Debug\net8.0\
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\CassinoGame\bin\Debug\net8.0\ConsoleGui.dll
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\CassinoGame\bin\Debug\net8.0\ConsoleGui.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\CassinoGame\obj\Debug\net8.0\CassinoGame.sourcelink.json
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\CassinoGame\bin\Debug\net8.0\Controller.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\CassinoGame\bin\Debug\net8.0\Controller.pdb
