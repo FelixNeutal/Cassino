@@ -28,6 +28,9 @@
             "projectReferences": {
               "C:\\Users\\Felix\\Desktop\\Git\\Cassino\\CassinoCardGame\\GameEngine\\GameEngine.csproj": {
                 "projectPath": "C:\\Users\\Felix\\Desktop\\Git\\Cassino\\CassinoCardGame\\GameEngine\\GameEngine.csproj"
+              },
+              "C:\\Users\\Felix\\Desktop\\Git\\Cassino\\CassinoCardGame\\MenuSystem\\MenuSystem.csproj": {
+                "projectPath": "C:\\Users\\Felix\\Desktop\\Git\\Cassino\\CassinoCardGame\\MenuSystem\\MenuSystem.csproj"
               }
             }
           }

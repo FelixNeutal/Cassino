@@ -1,30 +1,19 @@
-﻿namespace MenuSystem;
+﻿using System.Xml.Schema;
+
+namespace MenuSystem;
 
 public class Menu
 {
-    public List<MenuItem> MenuItems { get; set; } = new List<MenuItem>();
-    public List<MenuItem> SpecialMenuItems { get; set; } = new List<MenuItem>();
-    public List<string> ReservedShortcuts { get; set; } = new List<string>() {"E", "B", "M"};
-    public string Title { get; set; } = default!;
-    public EMenuLevel MenuLevel { get; set; }
-    public string MenuSeparator { get; set; } = "============================================";
+    public List<MenuItem>? MenuItems { get; private set; } = new List<MenuItem>();
+    public List<MenuItem>? SpecialMenuItems { get; private set; } = new List<MenuItem>();
+    public EMenuLevel? MenuLevel { get; private set; }
+    public string? Title { get; set; }
+    private string MenuSeparator = "############################################";
 
-    public Menu(string title, EMenuLevel menuLevel)
+    public Menu(string title, EMenuLevel level)
     {
         Title = title;
-        MenuLevel = menuLevel;
-        
-        GenerateSpecialMenuItems();
-    }
-
-    public void AddMenuItem(MenuItem item)
-    {
-        //  throw new ApplicationException($"Conflicting menu shortcut {item.ShortCut.ToUpper()}");
-        if (ListContains(MenuItems, item.Shortcut) || ListContains(SpecialMenuItems, item.Shortcut))
-        {
-            throw new ApplicationException($"Conflicting menu shortcut {item.Shortcut.ToUpper()}");    
-        }
-        MenuItems.Add(item);
+        MenuLevel = level;
     }
 
     public void AddMenuItems(List<MenuItem> items)
@@ -34,108 +23,105 @@ public class Menu
             AddMenuItem(item);
         }
     }
-
-    public void DeleteMenuItem(MenuItem item)
+    
+    public void AddMenuItem(MenuItem item)
     {
-        if (!MenuItems.Contains(item))
-        {
-            throw new ApplicationException($"Menuitem {item} is not in list");
-        }
-        MenuItems.Remove(item);
+        MenuItems?.Add(item);
+    }
+
+    public void RemoveMenuItem(MenuItem item)
+    {
+        MenuItems?.RemoveAt(MenuItems.FindIndex(a => a.Equals(item)));
     }
     
-    public void DeleteSpecialMenuItem(MenuItem item)
+    public void Init()
     {
-        if (!SpecialMenuItems.Contains(item))
+        MenuItem returnToPrevious = new MenuItem()
         {
-            throw new ApplicationException($"Menuitem {item} is not in list");
-        }
-        SpecialMenuItems.Remove(item);
-    }
+            Shortcut = "R",
+            Title = "Return",
+            MethodToRun = null
+        };
+        MenuItem mainMenu = new MenuItem()
+        {
+            Shortcut = "M",
+            Title = "Main Menu",
+            MethodToRun = null
+        };
+        MenuItem exit = new MenuItem()
+        {
+            Shortcut = "E",
+            Title = "Exit",
+            MethodToRun = null
+        };
 
-    private void GenerateSpecialMenuItems()
-    {
-        if (MenuLevel == EMenuLevel.Second)
+        if (MenuLevel == EMenuLevel.First)
         {
-            SpecialMenuItems.Add(new MenuItem("B", "Back", null));    
-        } else if (MenuLevel == EMenuLevel.More)
+            SpecialMenuItems?.Add(exit);
+        } else if (MenuLevel == EMenuLevel.Second)
         {
-            SpecialMenuItems.Add(new MenuItem("B", "Back", null));    
-            SpecialMenuItems.Add(new MenuItem("M", "Main menu", null));    
+            SpecialMenuItems?.Add(returnToPrevious);
+            SpecialMenuItems?.Add(exit);
         }
-        SpecialMenuItems.Add(new MenuItem("E", "Exit", null));
+        else if (MenuLevel == EMenuLevel.More)
+        {
+            SpecialMenuItems?.Add(mainMenu);
+            SpecialMenuItems?.Add(returnToPrevious);
+            SpecialMenuItems?.Add(exit);
+        }
+        else if (MenuLevel == EMenuLevel.None)
+        {
+        }
     }
     
     public string Run()
     {
-        string? playerInput = "";
-        MenuItem selectedMenuItem = new MenuItem();
-        Func<string>? runItem = null;
-        do
-        {
-            DrawMenu();
-            Console.Write("Your choice: ");
-            playerInput = Console.ReadLine()?.ToUpper() ?? "";
-            if (ListContains(MenuItems, playerInput))
-            {
-                selectedMenuItem = GetMenuItem(MenuItems, playerInput);
-                runItem = selectedMenuItem.MethodToRun;
-                if (runItem != null)
-                {
-                    playerInput = runItem();
-                    if (playerInput == "B" || (playerInput == "M" && MenuLevel == EMenuLevel.First))
-                    {
-                        playerInput = "";
-                    }
-                }
-            }
-        } while (!ReservedShortcuts.Contains(playerInput));
-        return playerInput;
-    }
-
-    private void DrawMenu()
-    {
-        Console.Clear();
         Console.WriteLine(MenuSeparator);
         Console.WriteLine(Title);
         Console.WriteLine(MenuSeparator);
-        foreach (var item in MenuItems)
-        {
-            Console.WriteLine(item);
-        }
-        Console.WriteLine();
-        foreach (var item in SpecialMenuItems)
+        foreach (var item in MenuItems!)
         {
             Console.WriteLine(item);
         }
         Console.WriteLine(MenuSeparator);
+        foreach (var item in SpecialMenuItems!)
+        {
+            Console.WriteLine(item);
+        }
+
+        string playerInput = "";
+        do
+        {
+            Console.Write("Enter your choice: ");
+            playerInput = Console.ReadLine()!.Trim().ToLower();
+            if (IsShortcutInMenuList(MenuItems, playerInput))
+            {
+                
+            }
+        } while (!IsShortcutInMenuList(SpecialMenuItems, playerInput));
+        return "";
     }
 
-    public bool ListContains(List<MenuItem> items, string shortcut)
+    protected string GetPlayerInput()
     {
-        bool isFound = false;
-        foreach (var item in items)
+        string playerInput = "";
+        do
         {
-            if (item.Shortcut.Equals(shortcut))
-            {
-                isFound = true;
-                break;
-            }
-        }
-        return isFound;
+            Console.Write("Enter your choice: ");
+            playerInput = Console.ReadLine()!.Trim().ToLower();
+        } while (!IsShortcutInMenuList(SpecialMenuItems, playerInput));
+        return playerInput;
     }
-    
-    public MenuItem GetMenuItem(List<MenuItem> items, string shortcut)
+
+    private bool IsShortcutInMenuList(List<MenuItem> items, string shortcut)
     {
-        MenuItem foundItem = new MenuItem();
-        foreach (var item in items)
+        foreach (var item in items!)
         {
-            if (item.Shortcut.Equals(shortcut))
+            if (item.Shortcut?.Trim().ToLower() == shortcut)
             {
-                foundItem = item;
-                break;
-            }
+                return true;
+            }   
         }
-        return foundItem;
+        return false;
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CassinoGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d4ef099015c9192c5b0ea1720b05ca8b77201ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ca3cd0c25772ccfe93f223ff3967e08b03ddd1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CassinoGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CassinoGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

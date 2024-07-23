@@ -30,4 +30,5 @@ public enum ERank
     Queen,
     [Description("K")]
     King,
+    Empty,
 }

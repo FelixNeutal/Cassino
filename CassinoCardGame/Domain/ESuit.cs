@@ -6,4 +6,5 @@ public enum ESuit
     Diamonds,
     Hearts,
     Spades,
+    Empty,
 }

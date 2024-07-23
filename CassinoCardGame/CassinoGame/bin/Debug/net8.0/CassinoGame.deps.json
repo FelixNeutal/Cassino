@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v8.0": {
       "CassinoGame/1.0.0": {
         "dependencies": {
-          "Controller": "1.0.0"
+          "ConsoleGui": "1.0.0",
+          "Domain": "1.0.0",
+          "GameSystem": "1.0.0"
         },
         "runtime": {
           "CassinoGame.dll": {}
@@ -16,21 +18,11 @@
       },
       "ConsoleGui/1.0.0": {
         "dependencies": {
-          "GameEngine": "1.0.0"
-        },
-        "runtime": {
-          "ConsoleGui.dll": {}
-        }
-      },
-      "Controller/1.0.0": {
-        "dependencies": {
-          "ConsoleGui": "1.0.0",
-          "Domain": "1.0.0",
-          "GameEngine": "1.0.0",
+          "GameSystem": "1.0.0",
           "MenuSystem": "1.0.0"
         },
         "runtime": {
-          "Controller.dll": {}
+          "ConsoleGui.dll": {}
         }
       },
       "Domain/1.0.0": {
@@ -38,12 +30,12 @@
           "Domain.dll": {}
         }
       },
-      "GameEngine/1.0.0": {
+      "GameSystem/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0"
         },
         "runtime": {
-          "GameEngine.dll": {}
+          "GameSystem.dll": {}
         }
       },
       "MenuSystem/1.0.0": {
@@ -64,17 +56,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Controller/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "GameEngine/1.0.0": {
+    "GameSystem/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

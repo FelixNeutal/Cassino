@@ -2,8 +2,6 @@ C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\C
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\ConsoleGui.dll
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\ConsoleGui.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\Domain.dll
-C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\GameEngine.dll
-C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\GameEngine.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\Domain.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.csproj.AssemblyReference.cache
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.GeneratedMSBuildEditorConfig.editorconfig
@@ -16,3 +14,7 @@ C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\r
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.pdb
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ref\ConsoleGui.dll
 C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\obj\Debug\net8.0\ConsoleGui.sourcelink.json
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\MenuSystem.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\MenuSystem.pdb
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\GameSystem.dll
+C:\Users\Felix\Desktop\Git\Cassino\CassinoCardGame\ConsoleGui\bin\Debug\net8.0\GameSystem.pdb
